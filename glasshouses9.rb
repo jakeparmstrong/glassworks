@@ -3,7 +3,6 @@
 # Arranger: Jacob Armstrong
 
 use_bpm 170
-use_synth :sine
 
 define :first do #3 x 4 = 16
   4.times do
@@ -129,6 +128,94 @@ define :fourth do #4 x 11 = 44
   end
 end
 
+define :fifth do
+  2.times do
+    play :e4, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :cs5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :e5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :e5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :e6, pan: 0.8, amp: 0.8
+    sleep 1
+    play :cs6, pan: 0.8, amp: 0.8
+    sleep 1
+    play :cs4, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :e4, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :cs5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :e5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :e5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :e6, pan: 0.8, amp: 0.8
+    sleep 1
+    play :e6, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :cs6, pan: 0.8, amp: 0.8
+    sleep 1
+  end
+end
+
+define :sixth do
+  4.times do
+    play :cs5, pan: 0.8, amp: 0.8
+    sleep 1
+    play :cs5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :d5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :cs5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :a4, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :e5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :cs5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :a4, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :e4, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :cs4, pan: 0.8, amp: 0.8
+    sleep 1
+    play :cs4, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :e4, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :a4, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :cs5, pan: 0.8, amp: 0.8
+    sleep 1
+    play :cs5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :d5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :cs5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :a4, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :a5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :cs5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :d5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :e5, pan: 0.8, amp: 0.8
+    sleep 1
+    play :e5, pan: 0.8, amp: 0.8
+    sleep 0.5
+    play :b4, pan: 0.8, amp: 0.8
+    sleep 1
+    play :e4, pan: 0.8, amp: 0.8
+    sleep 1
+  end
+end
+
 
 
 in_thread(name: :righthand) do
@@ -150,11 +237,22 @@ in_thread(name: :righthand) do
   end
   third #44
   fourth #44
+  fifth
+  sixth
+  fifth
+  third
+  2.times do
+    first #16
+    second #16
+  end
+  third
+  fourth
+  
 end
 
 in_thread(name: :lefthand) do
   use_synth :chipbass
-  120.times do
+  500.times do
     play :a2, pan: -0.8, amp: 0.8
     sleep 0.5
     play :a3, pan: -0.8, amp: 0.8
@@ -171,3 +269,4 @@ in_thread(name: :lefthand) do
     sleep 0.5
   end
 end
+
